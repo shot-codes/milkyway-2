@@ -1,11 +1,14 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
+    import LoginGraphic from "$lib/client/components/LoginGraphic.svelte";
 </script>
 
 <div class="flex h-full flex-col items-center justify-center">
-  <div class="mb-16">
-    <h1 class="text-[80px] font-bold">Zibra</h1>
-  </div>
+
+
+	<LoginGraphic/>
+
+
   <h1 class="mx-auto mb-4">Continue with new account</h1>
   <div class="w-96">
     <form class="mw-form mb-3" method="POST" use:enhance>

@@ -28,3 +28,44 @@ model Session {
   @@index([user_id])
   @@map("session")
 }
+
+model SystemConfig {
+  id         String  @id @unique @default(cuid())
+  archived   Boolean @default(false)
+  name       String
+  background String
+  system     System  @relation(fields: [systemId], references: [id], onDelete: Cascade)
+  systemId   String
+}
+
+model System {
+  id               String   @id @unique @default(cuid())
+  archived         Boolean  @default(false)
+  planet           Planet   @relation(fields: [planetId], references: [id], onDelete: Cascade)
+  orbitRadius      Float
+  orbitSpeed       Float
+  children         System[] @relation("parental")
+  parentalRelation System[] @relation("parental")
+
+  SystemConfig SystemConfig[]
+  planetId     String
+}
+
+model Planet {
+  id         String   @id @unique @default(cuid())
+  archived   Boolean  @default(false)
+  name       String
+  radius     Float
+  material   Material @relation(fields: [materialId], references: [id], onDelete: Cascade)
+  System     System[]
+  materialId String
+}
+
+model Material {
+  id         String   @id @unique @default(cuid())
+  archived   Boolean  @default(false)
+  key        String
+  offsetRate Float
+  scale      Float
+  Planet     Planet[]
+}

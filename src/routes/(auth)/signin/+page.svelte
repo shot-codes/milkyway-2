@@ -1,12 +1,13 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  // import Logo from "$lib/client/components/Logo.svelte";
+  import LoginGraphic from "$lib/client/components/LoginGraphic.svelte";
 </script>
 
 <div class="flex h-full flex-col items-center justify-center">
-  <div class="mb-12">
-    <h1 class="text-[80px] font-bold">Zibra</h1>
-  </div>
+
+	<div class="w-96 h-64 mb-10">
+    <LoginGraphic/>
+	</div>
 
   <div class="flex w-96 flex-col p-1">
     <a
