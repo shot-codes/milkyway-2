@@ -4,7 +4,7 @@
 </script>
 
 <div class="flex h-full flex-col items-center justify-center">
-  <div class="w-96 h-64 mb-10">
+  <div class="mb-10 h-64 w-96">
     <LoginGraphic />
   </div>
 

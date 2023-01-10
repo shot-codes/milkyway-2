@@ -5,8 +5,8 @@
   const scale = spring(1);
 </script>
 
-<div class="relative flex justify-center items-center w-full h-full">
-  <div class="absolute top-0 w-full h-full">
+<div class="relative flex h-full w-full items-center justify-center">
+  <div class="absolute top-0 h-full w-full">
     <Canvas>
       <T.PerspectiveCamera makeDefault position={[10, 0, 0]} fov={24}>
         <OrbitControls
@@ -36,7 +36,7 @@
     </Canvas>
   </div>
   <span
-    class="text-[80pt] inline-block align-middle invert dark:invert-0 mix-blend-difference font-bold pointer-events-none"
+    class="pointer-events-none inline-block align-middle text-[80pt] font-bold mix-blend-difference invert dark:invert-0"
   >
     Zibra
   </span>

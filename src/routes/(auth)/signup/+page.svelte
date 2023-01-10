@@ -4,7 +4,9 @@
 </script>
 
 <div class="flex h-full flex-col items-center justify-center">
-  <LoginGraphic />
+  <div class="mb-10 h-64 w-96">
+    <LoginGraphic />
+  </div>
 
   <h1 class="mx-auto mb-4">Continue with new account</h1>
   <div class="w-96">
