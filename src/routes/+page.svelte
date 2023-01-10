@@ -5,4 +5,4 @@
   console.log(data);
 </script>
 
-{data}
+<pre>{JSON.stringify(data)}</pre>
