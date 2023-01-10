@@ -8,7 +8,6 @@ import configs from "./data/configs.js";
 const prisma = new PrismaClient();
 
 const runSeeders = async () => {
-
   // Create data
   await Promise.all(
     users.map(async (x) =>
@@ -59,41 +58,40 @@ const runSeeders = async () => {
   // Create n-n self relations on System
   await prisma.system.update({
     where: {
-      id: "system1"
+      id: "system1",
     },
     data: {
       children: {
         connect: {
-          id: "system2"
-        }
-      }
-    }
+          id: "system2",
+        },
+      },
+    },
   });
   await prisma.system.update({
     where: {
-      id: "system1"
+      id: "system1",
     },
     data: {
       children: {
         connect: {
-          id: "system4"
-        }
-      }
-    }
+          id: "system4",
+        },
+      },
+    },
   });
   await prisma.system.update({
     where: {
-      id: "system2"
+      id: "system2",
     },
     data: {
       children: {
         connect: {
-          id: "system3"
-        }
-      }
-    }
+          id: "system3",
+        },
+      },
+    },
   });
-
 };
 runSeeders()
   .then(async () => {

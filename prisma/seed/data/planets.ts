@@ -29,5 +29,4 @@ export default [
     radius: 1.5,
     materialId: "material2",
   },
-
 ] satisfies Planet[];

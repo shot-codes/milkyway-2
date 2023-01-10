@@ -7,8 +7,8 @@ describe("database seed", () => {
   it("database has intial config", async () => {
     const config = await prisma.systemConfig.findUnique({
       where: {
-        id: "systemConfig1"
-      }
+        id: "systemConfig1",
+      },
     });
     expect(config?.name).toBe("config 1");
   });

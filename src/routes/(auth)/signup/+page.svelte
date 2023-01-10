@@ -1,13 +1,10 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-    import LoginGraphic from "$lib/client/components/LoginGraphic.svelte";
+  import LoginGraphic from "$lib/client/components/LoginGraphic.svelte";
 </script>
 
 <div class="flex h-full flex-col items-center justify-center">
-
-
-	<LoginGraphic/>
-
+  <LoginGraphic />
 
   <h1 class="mx-auto mb-4">Continue with new account</h1>
   <div class="w-96">

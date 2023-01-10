@@ -6,6 +6,6 @@ export default [
     archived: false,
     name: "config 1",
     background: "purple",
-    systemId: "system1"
-  }
+    systemId: "system1",
+  },
 ] satisfies SystemConfig[];

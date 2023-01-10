@@ -4,10 +4,9 @@
 </script>
 
 <div class="flex h-full flex-col items-center justify-center">
-
-	<div class="w-96 h-64 mb-10">
-    <LoginGraphic/>
-	</div>
+  <div class="w-96 h-64 mb-10">
+    <LoginGraphic />
+  </div>
 
   <div class="flex w-96 flex-col p-1">
     <a
