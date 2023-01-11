@@ -5,49 +5,49 @@ import type { SystemConfig } from "$app3d/utils/types";
 
 // const prisma = new PrismaClient();
 
-export const load = (async () => {
-  const systemConfig = await db.systemConfig.findUnique({
-    where: {
-      id: "systemConfig1",
-    },
-    // Prisma doesn't support recursive includes so we have to specify a level explicitly.
-    include: {
-      system: {
-        include: {
-          planet: {
-            include: {
-              material: true,
-            },
-          },
-          children: {
-            include: {
-              planet: {
-                include: {
-                  material: true,
-                },
-              },
-              children: {
-                include: {
-                  planet: {
-                    include: {
-                      material: true,
-                    },
-                  },
-                  children: true,
-                },
-              },
-            },
-          },
-        },
-      },
-    },
-  });
+// export const load = (async () => {
+//   const systemConfig = await db.systemConfig.findUnique({
+//     where: {
+//       id: "systemConfig1",
+//     },
+//     // Prisma doesn't support recursive includes so we have to specify a level explicitly.
+//     include: {
+//       system: {
+//         include: {
+//           planet: {
+//             include: {
+//               material: true,
+//             },
+//           },
+//           children: {
+//             include: {
+//               planet: {
+//                 include: {
+//                   material: true,
+//                 },
+//               },
+//               children: {
+//                 include: {
+//                   planet: {
+//                     include: {
+//                       material: true,
+//                     },
+//                   },
+//                   children: true,
+//                 },
+//               },
+//             },
+//           },
+//         },
+//       },
+//     },
+//   });
 
-  if (systemConfig) {
-    console.log(systemConfig satisfies SystemConfig);
-  }
+//   if (systemConfig) {
+//     console.log(systemConfig satisfies SystemConfig);
+//   }
 
-  return {
-    systemConfig,
-  };
-}) satisfies PageServerLoad;
+//   return {
+//     systemConfig,
+//   };
+// }) satisfies PageServerLoad;
