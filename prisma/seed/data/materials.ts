@@ -11,14 +11,14 @@ export default [
   {
     id: "material2",
     archived: false,
-    key: MaterialKey.CORE,
+    key: MaterialKey.MARBLE,
     offsetRate: 1,
     scale: 1,
   },
   {
     id: "material3",
     archived: false,
-    key: MaterialKey.CORE,
+    key: MaterialKey.MARBLE,
     offsetRate: 10,
     scale: 10,
   },

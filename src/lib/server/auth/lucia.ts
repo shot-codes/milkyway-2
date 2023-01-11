@@ -1,4 +1,3 @@
-import { PrismaClient } from "@prisma/client";
 import db from "$lib/server/db";
 import lucia from "lucia-auth";
 import prisma from "@lucia-auth/adapter-prisma";

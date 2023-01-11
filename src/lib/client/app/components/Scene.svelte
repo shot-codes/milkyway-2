@@ -1,12 +1,19 @@
 <script lang="ts">
   import type { SystemConfig } from "$app3d/utils/types";
-  // export let systemConfig: SystemConfig;
-
-  import { LayerMaterial } from "lamina/vanilla";
-  console.log(new LayerMaterial());
-
-  import { custom } from "$app3d/utils/custom";
-  console.log(custom);
-
+  import { backgrounds } from "$app3d/utils/materials";
+  import { Fog } from "@threlte/core";
+  import Planet from "$app3d/components/Planet.svelte";
+  import Camera from "$app3d/components/Camera.svelte";
+  import Background from "./Background.svelte";
+  export let systemConfig: SystemConfig;
+  console.log(systemConfig);
 </script>
 
+<Fog
+  color={backgrounds[systemConfig.background].fogColor}
+  near={50}
+  far={120}
+/>
+<Background background={systemConfig.background} />
+<Camera />
+<Planet planetSystem={systemConfig.system} orbitRadius={16} />

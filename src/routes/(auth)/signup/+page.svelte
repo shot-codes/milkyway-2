@@ -1,6 +1,6 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
-  import LoginGraphic from "$lib/client/admin/components/LoginGraphic.svelte";
+  import LoginGraphic from "$admin/components/loginGraphic/LoginGraphic.svelte";
 </script>
 
 <div class="flex h-full flex-col items-center justify-center">

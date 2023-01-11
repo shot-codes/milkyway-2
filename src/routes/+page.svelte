@@ -13,11 +13,10 @@
 
 <Navbar />
 
-<!-- {#if data.systemConfig} -->
+{#if data.systemConfig}
   <div class="absolute top-0 left-0 h-full w-full">
     <Canvas>
-      <!-- <Scene systemConfig={data.systemConfig} /> -->
-      <Scene/>
+      <Scene systemConfig={data.systemConfig} />
     </Canvas>
   </div>
-<!-- {/if} -->
+{/if}

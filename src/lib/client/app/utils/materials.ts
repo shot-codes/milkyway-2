@@ -7,8 +7,9 @@ import {
   Displace,
 } from "lamina/vanilla";
 import { BackSide, Color } from "three";
-import { MaterialKey, BackgroundKey } from "@prisma/client";
+import type { MaterialKey, BackgroundKey } from "@prisma/client";
 
+// These store background and material data that isn't stored in the db.
 interface Background {
   fogColor: Color;
   lightColor: Color;
@@ -16,9 +17,6 @@ interface Background {
 }
 
 interface Material {
-  key: MaterialKey; // This isn't needed TODO: remove
-  offsetRate: number;
-  scale: number;
   material: NewLayerMaterial;
 }
 
@@ -32,6 +30,7 @@ type Backgrounds = {
   [key in BackgroundKey]: Background;
 };
 
+// Animates displaement and noice layers
 export const updateMaterialLayers = (
   material: LayerMaterial,
   key: string,
@@ -119,11 +118,7 @@ export const backgrounds: Backgrounds = {
 };
 
 export const materials: Materials = {
-  // Marble Material
   MARBLE: {
-    key: MaterialKey.MARBLE,
-    offsetRate: 3,
-    scale: 3,
     material: () => {
       return new LayerMaterial({
         color: "#ffffff",
@@ -167,11 +162,7 @@ export const materials: Materials = {
     },
   },
 
-  // System-core Material
   CORE: {
-    key: MaterialKey.CORE,
-    offsetRate: 3,
-    scale: 0.2,
     material: () => {
       return new LayerMaterial({
         color: "#ff0000",
@@ -210,7 +201,7 @@ export const materials: Materials = {
           }),
           new Displace({
             strength: 6.45,
-            scale: 0.2,
+            scale: 1,
             type: "perlin",
             offset: [0, 0, 0],
             mode: "normal",

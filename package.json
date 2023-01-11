@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
-    "dbclear": "pnpm exec prisma db execute --file prisma/seed/cleardb.sql",
+    "dbclear": "prisma db execute --file prisma/seed/cleardb.sql",
     "dbseed": "prisma db push && tsc --target 'es6' --moduleResolution 'node' --outDir 'prisma/seed/build/' prisma/seed/seed.ts && node prisma/seed/build/seed.js",
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
