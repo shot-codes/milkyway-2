@@ -10,7 +10,9 @@ const config = {
   kit: {
     adapter: adapter(),
     alias: {
-      $styles: "src/styles/*",
+      $styles: "src/styles",
+      $app3d: "src/lib/client/app",
+      $admin: "src/lib/client/admin",
     },
   },
 };

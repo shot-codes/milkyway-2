@@ -1,8 +1,22 @@
 <script lang="ts">
+  import { Canvas } from "@threlte/core";
   import type { PageData } from "./$types";
-  export let data: PageData;
+  import Scene from "$app3d/components/Scene.svelte";
+  import Navbar from "$app3d/components/Navbar.svelte";
 
-  console.log(data);
+  export let data: PageData;
 </script>
 
-<pre>{JSON.stringify(data)}</pre>
+<svelte:head>
+  <title>Zibra</title>
+</svelte:head>
+
+<Navbar />
+
+{#if data.systemConfig}
+  <div class="absolute top-0 left-0 h-full w-full">
+    <Canvas>
+      <Scene systemConfig={data.systemConfig} />
+    </Canvas>
+  </div>
+{/if}

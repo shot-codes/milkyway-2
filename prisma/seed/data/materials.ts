@@ -1,24 +1,24 @@
-import { Material } from "@prisma/client";
+import { Material, MaterialKey } from "@prisma/client";
 
 export default [
   {
     id: "material1",
     archived: false,
-    key: "core",
+    key: MaterialKey.CORE,
     offsetRate: 0.2,
     scale: 0.2,
   },
   {
     id: "material2",
     archived: false,
-    key: "marble",
+    key: MaterialKey.CORE,
     offsetRate: 1,
     scale: 1,
   },
   {
     id: "material3",
     archived: false,
-    key: "marble",
+    key: MaterialKey.CORE,
     offsetRate: 10,
     scale: 10,
   },

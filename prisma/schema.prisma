@@ -33,7 +33,7 @@ model SystemConfig {
   id         String  @id @unique @default(cuid())
   archived   Boolean @default(false)
   name       String
-  background String
+  background BackgroundKey
   system     System  @relation(fields: [systemId], references: [id], onDelete: Cascade)
   systemId   String
 }
@@ -61,10 +61,20 @@ model Planet {
   materialId String
 }
 
+enum BackgroundKey {
+  PURPLE
+  GREEN
+}
+
+enum MaterialKey {
+  CORE
+  MARBLE
+}
+
 model Material {
   id         String   @id @unique @default(cuid())
   archived   Boolean  @default(false)
-  key        String
+  key        MaterialKey
   offsetRate Float
   scale      Float
   Planet     Planet[]

@@ -1,10 +1,12 @@
 import type { PageServerLoad } from "./$types";
-import { PrismaClient } from "@prisma/client";
+import db from "$lib/server/db";
+import type { SystemConfig } from "$app3d/utils/types";
+// import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
 export const load = (async () => {
-  const systemConfig = await prisma.systemConfig.findUnique({
+  const systemConfig = await db.systemConfig.findUnique({
     where: {
       id: "systemConfig1",
     },
@@ -12,10 +14,25 @@ export const load = (async () => {
     include: {
       system: {
         include: {
+          planet: {
+            include: {
+              material: true,
+            },
+          },
           children: {
             include: {
+              planet: {
+                include: {
+                  material: true,
+                },
+              },
               children: {
                 include: {
+                  planet: {
+                    include: {
+                      material: true,
+                    },
+                  },
                   children: true,
                 },
               },
@@ -25,6 +42,10 @@ export const load = (async () => {
       },
     },
   });
+
+  if (systemConfig) {
+    console.log(systemConfig satisfies SystemConfig);
+  }
 
   return {
     systemConfig,

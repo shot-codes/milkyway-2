@@ -27,5 +27,5 @@ export const GET = (async ({ url, cookies }) => {
     cookies.set(cookie.name, cookie.value, cookie.attributes);
   });
 
-  throw redirect(307, "/");
+  throw redirect(307, "/admin");
 }) satisfies RequestHandler;

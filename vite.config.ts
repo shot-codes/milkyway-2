@@ -1,6 +1,7 @@
 import { sveltekit } from "@sveltejs/kit/vite";
 import type { UserConfig } from "vite";
 
+/// <reference types="vitest" />
 const config: UserConfig = {
   plugins: [sveltekit()],
   test: {
@@ -10,7 +11,12 @@ const config: UserConfig = {
     ],
   },
   ssr: {
-    noExternal: ["three", "troika-three-text"],
+    noExternal: [
+      "three",
+      "troika-three-text",
+      // "lamina",
+      // "three-custom-shader-material",
+    ],
   },
 };
 
