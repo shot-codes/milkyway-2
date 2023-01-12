@@ -5,8 +5,8 @@
   import Planet from "$app3d/components/Planet.svelte";
   import Camera from "$app3d/components/Camera.svelte";
   import Background from "./Background.svelte";
+
   export let systemConfig: SystemConfig;
-  console.log(systemConfig);
 </script>
 
 <Fog

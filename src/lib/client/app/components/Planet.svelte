@@ -4,12 +4,9 @@
   import { materials, updateMaterialLayers } from "$app3d/utils/materials";
   import OrbitRing from "./OrbitRing.svelte";
 
-  // type System = Prisma.SystemGetPayload<{
-  //   include: { planet: true, children: true }
-  // }>
-
   export let planetSystem: System;
   export let orbitRadius: number;
+
   let stopwatch = 1;
   let material = materials[planetSystem.planet.material.key];
   let layerMaterial = material.material();

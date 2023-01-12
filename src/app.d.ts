@@ -15,11 +15,3 @@ declare namespace App {
     setSession: import("@lucia-auth/sveltekit").SetSession;
   }
 }
-
-// declare global {
-//   namespace NodeJS {
-//     interface Global {
-//       db: PrismaClient;
-//     }
-//   }
-// }
