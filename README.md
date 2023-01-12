@@ -1,38 +1,21 @@
-# create-svelte
+# Milky Way
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## Getting up and running
 
-## Creating a project
+Ensure you have postgres running locally. Then create a `.env` in the root directory with the following contents:
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+```env
+DATABASE_URL="postgresql://<user>:<password>@localhost:5432/<db>?schema=public"
+OUATH_GITHUB_CLIENT_ID=<github-client-id>
+OUATH_GITHUB_CLIENT_SECRET=<github-client-secret>
+OUATH_GOOGLE_CLIENT_ID=<google-client-id>
+OUATH_GOOGLE_CLIENT_SECRET=<google-client-secret>
+OUATH_GOOGLE_REDIRECT_URI="http://localhost:5173/oauth/google/callback"
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+Install dependenciesm seed the database, and run the development server:
 ```bash
+npm i
+npm run dbseed
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
