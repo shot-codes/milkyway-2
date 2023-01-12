@@ -1,7 +1,5 @@
 <script lang="ts">
   import type { PageData, ActionData } from "./$types";
-  import { signOut, getUser } from "@lucia-auth/sveltekit/client";
-  import { invalidateAll } from "$app/navigation";
   import { enhance } from "$app/forms";
   import { fade } from "svelte/transition";
   import { BackgroundKey } from "@prisma/client";
@@ -18,8 +16,6 @@
       recentlyUpdated = false;
     }, 3000);
   }
-
-  const user = getUser();
 </script>
 
 <svelte:head>
@@ -28,30 +24,18 @@
 
 <div class="flex h-full w-full flex-col place-content-center items-center">
   <!-- Threlte Scene -->
-  <div class="h-32 w-32">
+  <div class="h-64 w-64 overflow-hidden rounded-md shadow-lg">
     {#if data.systemConfig?.background}
       <AdminScene background={data.systemConfig.background} />
     {/if}
   </div>
 
-  <!-- User Card -->
-  <div class="border text-center">
-    <img src={$user?.avatar_url} alt="avatar" class="mb-3 w-16 rounded-full" />
-    <p>{$user?.username}</p>
-    <button
-      on:click={async () => {
-        await signOut();
-        invalidateAll();
-      }}>Sign out</button
-    >
-  </div>
-
   <!-- Background Form -->
-  <form use:enhance method="POST" action="?/update" class="flex space-x-2">
+  <form use:enhance method="POST" action="?/update" class="m-3 flex space-x-2">
     <input name="systemId" type="hidden" value={data.systemConfig?.id} />
     <select
       name="background"
-      class="flex-grow rounded rounded border border-base-300 p-1 dark:border-base-500 dark:bg-base-700"
+      class="rounded rounded border border-base-300 p-1 dark:border-base-500 dark:bg-base-700"
     >
       <option value={BackgroundKey.PURPLE}>Purple</option>
       <option value={BackgroundKey.GREEN}>Green</option>
@@ -66,7 +50,7 @@
   {#if recentlyUpdated}
     <div
       transition:fade={{ duration: 200 }}
-      class="absolute right-0 top-0 mr-6 flex place-items-center space-x-1 text-green-600"
+      class="absolute right-0 top-20 mr-6 flex place-items-center space-x-1 text-green-600"
     >
       <svg
         class="h-5 w-5"
